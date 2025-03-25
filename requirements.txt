@@ -1,6 +1,9 @@
-pandas
 numpy
+pandas
+matplotlib
 seaborn
-jupyter
-openpyxl
 scipy
+jupyter
+jupyterlab
+ipykernel
+openpyxl
