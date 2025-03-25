@@ -1,0 +1,14 @@
+name: dmfa
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - jupyter
+  - jupyterlab
+  - ipykernel
+  - openpyxl
