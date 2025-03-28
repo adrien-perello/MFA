@@ -1,8 +1,8 @@
 numpy
 pandas
+scipy
 matplotlib
 seaborn
-scipy
 jupyter
 jupyterlab
 ipykernel
