@@ -7,12 +7,13 @@
 
 **1. Install an Environment Management Tool**
 
-  - install [anaconda](https://www.anaconda.com/products/individual)
+  - [Donwnload anaconda](https://www.anaconda.com/products/individual) and follow the installation instructions for your operating system.
 
 
 **2. Download the Repository**
 
-  - Download as zip (click on Code > Download zip) and extract it to a preferred location on your computer.
+  - Click on **Code > Download ZIP**
+  - Extract the ZIP file to a preferred location on your computer.
   - or, [clone it](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) if you are tech savy and have git installed
 
 ![download repo](./img/import.png)
@@ -22,12 +23,16 @@
 
 - Navigate to the cloned/downloaded repository folder (where the `environment.yml` is located)
 - Open a Terminal (MacOS, Linux) or Command Prompt (Windows) from inside that specific directory
-  - Linux: Right-click and select `Open in Terminal`
+  - Windows: Click on the address bar in File Explorer, type `cmd`, and press Enter.
   - MacOS: Right-click and select `New Terminal at Folder`
-  - Windows: Click on the address bar, type `cmd`, and press Enter.
+  - Linux: Right-click and select `Open in Terminal`
 - Run the following command:
     ```bash
     conda env create --file environment.yml
+    ```
+- Activate the environment:
+    ```bash
+    conda activate dmfa
     ```
 
 > **Notes:**
@@ -37,12 +42,19 @@
 
 **4. Running Jupyter Notebooks**
 
-- Option 1: Using Jupyter Notebook
-  - activate the virtual environment by running the following command in the Terminal: `conda activate <MY-ENV-NAME>`
-  - launch jupyter by running the following command in the Terminal: `jupyter lab` (or `jupyter notebook`)
+- **Option 1:** Using the Graphical User Interface
+  - Open Anaconda Navigator.
+  - Click on Environments in the panel and [select your environment](https://www.anaconda.com/docs/tools/anaconda-navigator/tutorials/manage-environments) (dmfa or your custom name).
+  - Click Launch on Jupyter Notebook or JupyterLab.
 
+  
+- **Option 2:** Using the Command Line
+    - Launch a terminal/command prompt (or the "Anaconda Prompt" app)
+    - activate the virtual environment by running the following command in the Terminal: `conda activate dmfa` (or your custom name)
+    - launch jupyter by running the following command in the Terminal: `jupyter lab` (or `jupyter notebook`)
 
-- Option 2: Using VS Code
+  
+- **Option 3:** Using VS Code
     - Install [VS Code](https://code.visualstudio.com/download)
     - Open VS Code and go to File > Open Folder
     - Open a Jupyter Notebook (`.ipynb` file)
