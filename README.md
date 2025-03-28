@@ -1,5 +1,6 @@
 # Material Flow Analysis II
 
+***
 
 ## How to Run the Notebooks
 
@@ -34,19 +35,20 @@
     - MacOS: Right-click and select `New Terminal at Folder`
     - Linux: Right-click and select `Open in Terminal`
   - Run the following command:
-      ```bash
-      conda env create --file environment.yml
-      ```
+    ```bash
+    conda env create --file environment.yml
+    ```
   - Activate the environment:
-      ```bash
-      conda activate dmfa
-      ```
+    ```bash
+    conda activate dmfa
+    ```
 
 > **Notes:**
 > - If you’re not inside the correct directory, you can specify the full path: `--file /path/to/environment.yml`
 > - To change the environment'name via the Command Line, use `conda env create --name <MY-ENV-NAME> --file environment.yml`
 
-
+  
+  
 **4. Running Jupyter Notebooks**
 
 - **Option 1:** Using the Graphical User Interface
@@ -57,9 +59,18 @@
   
 - **Option 2:** Using the Command Line
     - Launch a terminal/command prompt (or the "Anaconda Prompt" app)
-    - activate the virtual environment by running the following command in the Terminal: `conda activate dmfa` (or your custom name)
-    - launch jupyter by running the following command in the Terminal: `jupyter lab` (or `jupyter notebook`)
-
+    - activate the virtual environment by running the following command in the Terminal:
+      ```bash
+      conda activate dmfa
+      ```
+    - launch jupyter by running the following command in the Terminal:
+      ```bash
+      jupyter lab
+      ``` 
+      or
+      ```bash
+      jupyter notebook
+      ```
   
 - **Option 3:** Using VS Code
     - Install [VS Code](https://code.visualstudio.com/download)
@@ -68,6 +79,7 @@
     - make sure to select [the virtual environment (i.e. Kernel)](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) where the Jupyter package is installed
 
 ![vscode](./img/vscode.png)
+
 
 ***
 
