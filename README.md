@@ -21,30 +21,37 @@
 
 **3. Set Up a Virtual Environment**
 
-- Navigate to the cloned/downloaded repository folder (where the `environment.yml` is located)
-- Open a Terminal (MacOS, Linux) or Command Prompt (Windows) from inside that specific directory
-  - Windows: Click on the address bar in File Explorer, type `cmd`, and press Enter.
-  - MacOS: Right-click and select `New Terminal at Folder`
-  - Linux: Right-click and select `Open in Terminal`
-- Run the following command:
-    ```bash
-    conda env create --file environment.yml
-    ```
-- Activate the environment:
-    ```bash
-    conda activate dmfa
-    ```
+- **Option 1:** Using the Graphical User Interface
+  - Open **Anaconda Navigato**r and click on Environments in the left panel
+  - [Select import](https://www.anaconda.com/docs/tools/anaconda-navigator/tutorials/manage-environments) (at the bottom) and navigate to the cloned/downloaded repository folder
+  - Select the `environment.yml` file
+  - Enter a descriptive name for the new environment, or use the existing name (default is `dmfa`)
+
+- **Option 2:** Using the Command Line
+  - Navigate to the cloned/downloaded repository folder (where the `environment.yml` is located)
+  - Open a Terminal (MacOS, Linux) or Command Prompt (Windows) from inside that specific directory
+    - Windows: Click on the address bar in File Explorer, type `cmd`, and press Enter.
+    - MacOS: Right-click and select `New Terminal at Folder`
+    - Linux: Right-click and select `Open in Terminal`
+  - Run the following command:
+      ```bash
+      conda env create --file environment.yml
+      ```
+  - Activate the environment:
+      ```bash
+      conda activate dmfa
+      ```
 
 > **Notes:**
 > - If you’re not inside the correct directory, you can specify the full path: `--file /path/to/environment.yml`
-> - The environment name is already specified in the `environment.yml` file (default is `dmfa`), but you can set your own name using: `conda env create --name <MY-ENV-NAME> --file environment.yml`
+> - To change the environment'name via the Command Line, use `conda env create --name <MY-ENV-NAME> --file environment.yml`
 
 
 **4. Running Jupyter Notebooks**
 
 - **Option 1:** Using the Graphical User Interface
-  - Open Anaconda Navigator.
-  - Click on Environments in the panel and [select your environment](https://www.anaconda.com/docs/tools/anaconda-navigator/tutorials/manage-environments) (dmfa or your custom name).
+  - Open **Anaconda Navigato**r and click on Environments in the left panel
+  - [Select your environment](https://www.anaconda.com/docs/tools/anaconda-navigator/tutorials/manage-environments) (dmfa or your custom name).
   - Click Launch on Jupyter Notebook or JupyterLab.
 
   
