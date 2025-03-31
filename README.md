@@ -1,6 +1,5 @@
 # Material Flow Analysis II
 
-***
 
 ## How to Run the Notebooks
 
