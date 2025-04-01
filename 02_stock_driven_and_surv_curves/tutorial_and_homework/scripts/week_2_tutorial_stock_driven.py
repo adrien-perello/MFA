@@ -101,7 +101,7 @@ stock
 # %%
 # create inflow series and survival matrix with
 # placeholder zeros, that we will populate
-inflows = pd.Series(0, index=stock.index, dtype=float)
+inflows = pd.Series(0, index=years, dtype=float)
 cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
 # %% [markdown]
