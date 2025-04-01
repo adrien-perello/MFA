@@ -1,5 +1,7 @@
 # %% [markdown]
+#
 # Use the **Pandas cheatsheet** [here](https://github.com/adrien-perello/Computer-Science-Crash-Course/blob/main/02_scientific-computing-libraries/03_pandas_cheatsheet.ipynb) to complete the tasks below
+#
 #
 
 # %% [markdown]
@@ -320,6 +322,12 @@ commodities
 # │   ├── interim/      # Data after initial cleaning/preprocessing
 # │   ├── processed/    # Final, analysis-ready datasets
 # │
+# │── docs/
+# │   ├── assignment.pdf  # Assignment details
+# │   ├── references/     # Supporting materials (papers, articles, etc.)
+# │
+# │── img/               # Any images used (logos, schematics, etc.)
+# │
 # │── notebooks/
 # │   ├── 00_exploratory.ipynb    # Initial exploration
 # │   ├── 01_cleaning.ipynb       # Data cleaning & transformation
@@ -334,12 +342,6 @@ commodities
 # │── reports/
 # │   ├── figures/       # Saved plots and figures
 # │   ├── final_report_or_poster.pdf  # Final report or presentation
-# │
-# │── docs/
-# │   ├── assignment.pdf  # Assignment details
-# │   ├── references/     # Supporting materials (papers, articles, etc.)
-# │
-# │── img/               # Any images used (logos, schematics, etc.)
 # │
 # │── environment.yml    # Python dependencies (for Anaconda / Mamba)
 # │── requirements.txt   # Python dependencies (for Pip / Virtualenv)
