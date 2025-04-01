@@ -25,7 +25,7 @@ print(BASE_DIR)
 #
 
 # %%
-# Load input data, inflow-driven model:
+# Load input data, stock-driven model:
 # and check your data
 
 file_path = BASE_DIR / "data" / "raw" / "MFA_II_tutorial_II.xlsx"
@@ -273,7 +273,7 @@ for counter, year in enumerate(years):
 # \end{align}
 # $$
 #
-# And the `scipy.linalg.solve()` can help us solve it
+# And `scipy.linalg.solve()` can help us solve it
 #
 # $$\mathbf{f} = \text{solve}(\mathbf{A}, \mathbf{s})$$
 #
