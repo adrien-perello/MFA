@@ -157,8 +157,8 @@ data.plot()
 data[["inflow", "outflow", "nas"]].plot()
 
 # %%
-# Zooming in the stocks
-data["stock"].plot()
+# Visualize the stock by cohorts
+cohort.plot(kind="area", stacked=True, legend=False)
 
 # %% [markdown]
 # # Export output data to Excel
