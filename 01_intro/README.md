@@ -1,7 +1,24 @@
+## Folder structure
+
+
+```bash
+project_name/
+│── code/     # code (.ipynb notebooks + .py scripts)
+│
+│── data_input/     # Original data as downloaded (never modified)
+│
+│── data_output/    # Final data, analysis-ready
+│
+│── docs/
+│   ├── lectures/    # Teaching materials
+│   ├── assignment/  # Assignment details
+```
+
+
 ## Tutorial
 
 Instructions:
-- Go to **01_into** > **tutorial_and_homework** > **docs**
+- Go to `docs/`
 - Open the `week_1_tutorial_(excel).docx` document
 - Try to answer all questions using the excel files in that folder
 
@@ -9,10 +26,10 @@ Instructions:
 ## Weekly assignment
 
 Instructions:
-- Go to **01_into** > **tutorial_and_homework** > **notebooks**
-- Open the `MFAII_lesson_1_homework.ipynb` notebook
+- Go to `code/`
+- Open the `week_1_assignment.ipynb` notebook
 - Try to answer all questions – grading will reflect this.
-- Save your answer as a **jupyter notebook** (`week_1_homework_familyName_firstName.ipynb`) or **python script** (`week_1_homework_familyName_firstName.py`)
+- Save your answer as a **jupyter notebook** (`week_1_assignment_familyName_firstName.ipynb`) or **python script** (`week_1_assignment_familyName_firstName.py`)
 - Submit your answers **individually** by **Wednesday 27/4 16:00** on Brightspace.
 
 **Additional notes:**
