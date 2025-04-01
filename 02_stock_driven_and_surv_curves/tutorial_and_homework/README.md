@@ -1,15 +1,15 @@
 ## Tutorial
 
 **Instructions:**
-- Go to **02_stock_driven_and_surv_curves** > **tutorial** > **notebooks**
-- Open the `MFAII_lesson_2_tutorial.ipynb` notebook
-- Try to answer all questions using the excel files in that folder
+- Go to **02_stock_driven_and_surv_curves** > **tutorial_and_homework** > **notebooks**
+- Open the `week_2_tutorial_flow_driven.ipynb` notebook and try to understand the code
+- Do the same with the `week_2_tutorial_stock_driven.ipynb` notebook
 
 
 ## Weekly assignment
 
 **Instructions:**
-- Go to **02_stock_driven_and_surv_curves** > **tutorial** > **notebooks**
+- Go to **02_stock_driven_and_surv_curves** > **tutorial_and_homework** > **notebooks**
 - Open the `week_2_homework.ipynb` notebook
 - Try to answer all questions – grading will reflect this.
 - Save your answer as a **jupyter notebook** (`week_2_homework_familyName_firstName.ipynb`) or **python script** (`week_2_homework_familyName_firstName.py`)
