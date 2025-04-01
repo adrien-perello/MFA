@@ -52,57 +52,11 @@ timesteps
 #
 # (if one wasn't supplied as input data)
 #
-
-# %%
-# Fixed lifetime survival curve
-
-fixed_lifetime = 40
-survival_curve = np.ones_like(timesteps)
-survival_curve[fixed_lifetime:] = 0
-
-plt.plot(survival_curve)
-plt.show()
-
-# %%
-# Uniform distribution
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html#scipy.stats.uniform
-
-uniform_dist = uniform(
-    loc=10,  # shifts the curve along the x-axis (starting point)
-    scale=20,  # controls the width (ending point)
-)
-survival_curve = uniform_dist.sf(timesteps)  # sf = survival function
-plt.plot(survival_curve)
-plt.show()
-
-# %%
-# Geometric distribution
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html#scipy.stats.geom
-
-geom_dist = geom(
-    p=0.05,  # controls the depreciation rate
-    loc=0,  # shifts the curve along the x-axis (starting point)
-)
-survival_curve = geom_dist.sf(timesteps)  # sf = survival function
-plt.plot(survival_curve)
-plt.show()
-
-# %%
-# Normal distribution
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy.stats.norm
-
-norm_dist = norm(
-    loc=30,  # shifts the center of the curve (mean point)
-    scale=10,  # Controls the spread of the curve (standard deviation)
-)
-survival_curve = norm_dist.sf(timesteps)  # sf = survival function
-plt.plot(survival_curve)
-plt.show()
+# --> see `week_2_tutorial_survival_curves.ipynb` notebook first
+#
 
 # %%
 # Weibull distribution
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_min.html
-
 weibull_dist = weibull_min(
     c=2,  # controls the shape of the curve (skewness)
     loc=0,  # shifts the curve along the x-axis (starting point)
@@ -113,23 +67,10 @@ survival_curve = weibull_dist.sf(timesteps)  # sf = survival function
 plt.plot(survival_curve)
 plt.show()
 
-# %%
-# Lognormal distribution
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.lognorm.html#scipy.stats.lognorm
-
-lognorm_dist = lognorm(
-    s=0.5,  # controls the shape of the curve (skewness)
-    loc=0,  # shifts the curve along the x-axis (starting point)
-    scale=10,  # controls the stretch of the distribution
-)
-
-survival_curve = lognorm_dist.sf(timesteps)  # sf = survival function
-
-plt.plot(survival_curve)
-plt.show()
-
 # %% [markdown]
 # # Create a survival curve matrix
+#
+# --> see `week_2_tutorial_survival_curves.ipynb` notebook first
 #
 
 # %%
@@ -147,9 +88,6 @@ for step in timesteps:
     survival_curve_matrix.loc[step:step_max, step] = values
 
 survival_curve_matrix
-
-# %%
-sns.heatmap(survival_curve_matrix, annot=False)
 
 # %% [markdown]
 # # Stock driven model
@@ -239,18 +177,19 @@ with pd.ExcelWriter(file_path, mode="a") as writer:
 # %% [markdown]
 # # Going further
 #
+# --> We saw in `week_2_tutorial_survival_curves.ipynb` notebook that we could also define the `survival_curve` and the `survival_curve_matrix` as follows:
+#
 
 # %%
 # Instead of a numpy array, we store the survival curve
 # as a pandas Series with the appropriate index (= years)
 sf = pd.Series(survival_curve, index=years)
-sf
 
-# %%
 # create survival curve matrix with placeholder zeros (same as before)
 survival_curve_matrix2 = pd.DataFrame(0, index=years, columns=years, dtype=float)
 
 # populate the survival curve matrix with shifted curves, column by column using slices
+# ! This time we use the years as index instead of the timesteps
 for counter, year in enumerate(years):
     # at each iteration, we take 1 year less of the survival curve
     last_idx = end_year - counter
@@ -260,14 +199,9 @@ for counter, year in enumerate(years):
     # --> columns: only the current year
     survival_curve_matrix2.loc[year:end_year, year] = values
 
-# notice the names of the columns and rows
-# are now years instead of timesteps
-survival_curve_matrix2
-
-# %%
-# notice the names of the columns and rows
-# are now years instead of timesteps
-sns.heatmap(survival_curve_matrix2, annot=False)
+# %% [markdown]
+# Now let's utilize numpy and pandas capacities to **optimize** our stock driven model
+#
 
 # %% [markdown]
 # There are different types of matrix multiplications:
