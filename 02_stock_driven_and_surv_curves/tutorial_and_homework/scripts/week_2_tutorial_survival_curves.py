@@ -148,6 +148,7 @@ for step in timesteps:
 survival_curve_matrix
 
 # %%
+# visualize the survival curve matrix with a heatmap
 sns.heatmap(survival_curve_matrix, annot=False)
 
 # %% [markdown]
@@ -180,6 +181,7 @@ for counter, year in enumerate(years):
 survival_curve_matrix2
 
 # %%
+# visualize the cohort matrix with a heatmap
 # notice the names of the columns and rows
 # are now years instead of timesteps
 sns.heatmap(survival_curve_matrix2, annot=False)

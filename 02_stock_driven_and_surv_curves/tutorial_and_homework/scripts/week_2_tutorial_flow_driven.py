@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from scipy.linalg import solve
 from scipy.stats import geom, lognorm, norm, uniform, weibull_min
 
 # %%
@@ -24,11 +25,11 @@ print(BASE_DIR)
 #
 
 # %%
-# Load input data, inflow-driven model:
+# Load input data, stock-driven model:
 # and check your data
 
 file_path = BASE_DIR / "data" / "raw" / "MFA_II_tutorial_II.xlsx"
-data = pd.read_excel(file_path, sheet_name="inflow_driven")
+data = pd.read_excel(file_path, sheet_name="stock_driven")
 data.info()
 
 # %%
@@ -69,8 +70,6 @@ plt.show()
 # %% [markdown]
 # # Create a survival curve matrix
 #
-
-# %% [markdown]
 # --> see `week_2_tutorial_survival_curves.ipynb` notebook first
 #
 
@@ -91,40 +90,47 @@ for step in timesteps:
 survival_curve_matrix
 
 # %% [markdown]
-# # Flow driven model
+# # Stock driven model
 #
 
 # %%
 # This is our model input
-inflows = data["inflow"]
-inflows
+stock = data["stock"]
+stock
 
 # %%
-# create survival matrix with placeholder zeros that we will populate
+# create inflow series and survival matrix with
+# placeholder zeros, that we will populate
+inflows = pd.Series(0, index=years, dtype=float)
 cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
 # %% [markdown]
-# ![flow_driven_equations](../img/flow_driven_equations.png)
+# ![stock_driven_equations](../img/stock_driven_equations.png)
 #
 
 # %%
+# iteratively calculate the inflows, and
 # multiply the inflow with the shifted curves to get the cohorts' behavior over time
 for time in timesteps:
-    # the line below is the same as for stock driven models
+    # calculate the difference between current stock and the sum of all prev inflows
+    # but we don't forget to divide by survival_curve[0] (not always = 1)
+    difference = stock.iloc[time] - cohort.loc[time, :].sum()
+    inflows.iloc[time] = difference / survival_curve_matrix.loc[time, time]
+    # the line below is the same as for flow driven models
     cohort.loc[:, time] = survival_curve_matrix.loc[:, time] * inflows.iloc[time]
-
-# set index and columns to years instead of timesteps
-cohort.index = years
-cohort.columns = years
 
 cohort
 
 # %%
+# set index and columns to years instead of timesteps
+cohort.index = years
+cohort.columns = years
+
+# and visualize the cohort matrix with a heatmap
 sns.heatmap(cohort, annot=False)
 
 # %%
-# calculate flows & stocks using the cohort
-stock = cohort.sum(axis=1)
+# calculate outflows and nas:
 nas = np.diff(stock, prepend=0)  # prepending 0 assumes no initial stock
 outflows = inflows - nas
 
@@ -159,7 +165,7 @@ data["stock"].plot()
 # Save the data to an Excel file
 # (you may need to create the folder if it doesn't exist)
 file_path = BASE_DIR / "data" / "processed" / "week_2_tutorial_myname.xlsx"
-data.to_excel(file_path, sheet_name="flow_driven")
+data.to_excel(file_path, sheet_name="stock_driven")
 
 # %%
 # But we also want to save the cohort data in the same excel file
@@ -168,7 +174,7 @@ data.to_excel(file_path, sheet_name="flow_driven")
 # https://pandas.pydata.org/docs/reference/api/pandas.ExcelWriter.html
 
 with pd.ExcelWriter(file_path, mode="a") as writer:
-    cohort.to_excel(writer, sheet_name="cohort_flow_driven")
+    cohort.to_excel(writer, sheet_name="cohort_stock_driven")
 
 # %% [markdown]
 # # Going further
@@ -196,7 +202,7 @@ for counter, year in enumerate(years):
     survival_curve_matrix2.loc[year:end_year, year] = values
 
 # %% [markdown]
-# Now let's utilize numpy and pandas capacities to **optimize** our flow driven model
+# Now let's utilize numpy and pandas capacities to **optimize** our stock driven model
 #
 
 # %% [markdown]
@@ -205,7 +211,7 @@ for counter, year in enumerate(years):
 # - the **dot product** (using the `np.dot()` function or the `@` operator)?
 # - the **element-wise matrix multiplication** (`np.multiply()` function or `*` operator)
 #
-# The element-wise matrix multiplication does the following:
+# The **dot product** does the following:
 #
 # $$
 # \begin{bmatrix}
@@ -213,7 +219,7 @@ for counter, year in enumerate(years):
 # a_{21} & a_{22} & a_{23} \\
 # a_{31} & a_{32} & a_{33} \\
 # \end{bmatrix}
-# *
+# \cdot
 # \begin{bmatrix}
 # f_1 \\
 # f_2 \\
@@ -221,9 +227,9 @@ for counter, year in enumerate(years):
 # \end{bmatrix}
 # =
 # \begin{bmatrix}
-# a_{11} f_1  & a_{12} f_1 & a_{13} f_1 \\
-# a_{21} f_2  & a_{22} f_2 & a_{23} f_2 \\
-# a_{31} f_3  & a_{32} f_3 & a_{33} f_3 \\
+# a_{11} f_1 + a_{12} f_2  + a_{13} f_3  \\
+# a_{21} f_1 + a_{22} f_2  + a_{23} f_3  \\
+# a_{31} f_1 + a_{32} f_2  + a_{33} f_3  \\
 # \end{bmatrix}
 # $$
 #
@@ -240,7 +246,7 @@ for counter, year in enumerate(years):
 # a_{2} & a_{1} & 0 \\
 # a_{3} & a_{2} & a_{1} \\
 # \end{bmatrix}
-# *
+# \cdot
 # \begin{bmatrix}
 # f_1 \\
 # f_2 \\
@@ -248,29 +254,39 @@ for counter, year in enumerate(years):
 # \end{bmatrix}
 # =
 # \begin{bmatrix}
-# a_{1} f_1 & 0 & 0 \\
-# a_{2} f_1 & a_{1} f_2 & 0 \\
-# a_{3} f_1 & a_{2} f_2 & a_{1} f_3  \\
+# a_{1} f_1 \\
+# a_{2} f_1 + a_{1} f_2  \\
+# a_{3} f_1 + a_{2} f_2  + a_{1} f_3  \\
 # \end{bmatrix}
 # $$
 #
-# You may recognize the `cohort` matrix $\mathbf{C}$ as the result.
+# You may recognize the `stock` vector $\mathbf{s}$ as the result
 #
-# In other words, the **element-wise matrix multiplication** saves us from having to do a `for loop`
+# In other words, we have the following system of linear equations:
+#
+# $$
+# \begin{align}
+# \mathbf{A} \cdot \mathbf{f} &= \mathbf{s} \\
+# \mathbf{f} &= \mathbf{A}^{-1} \cdot \mathbf{s}
+# \end{align}
+# $$
+#
+# And `scipy.linalg.solve()` can help us solve it
+#
+# $$\mathbf{f} = \text{solve}(\mathbf{A}, \mathbf{s})$$
 #
 
 # %%
-# no need to do a for loop with the element wise multiplication
-cohort2 = survival_curve_matrix2 * inflows
-cohort2
+# the linear algebra library in scipy allows us to solve this
+# but it returns a numpy array, so we convert it into a Pandas Series
+inflows2 = solve(survival_curve_matrix2, stock)
+inflows2 = pd.Series(inflows2, index=years)
+inflows2
 
 # %%
 # Check that they are indeed the same
 # always use np.allclose() instead of == to compare floats
-np.allclose(cohort2, cohort)
-
-# %%
-sns.heatmap(cohort2, annot=False)
+np.allclose(inflows2, inflows)
 
 # %% [markdown]
 # # More information and tips
@@ -280,6 +296,6 @@ sns.heatmap(cohort2, annot=False)
 # - [Statistical functions in scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html)
 # - the `enumerate()` function on [W3school](https://www.w3schools.com/python/ref_func_enumerate.asp) or [Programiz](https://www.programiz.com/python-programming/methods/built-in/enumerate)
 # - [Pandas excel writer](https://pandas.pydata.org/docs/reference/api/pandas.ExcelWriter.html)
-# - [Element wise multiplication](https://www.sharpsightlabs.com/blog/numpy-multiply/)
 # - Difference between `np.dot()`, `np.multiply()` and `np.matmul()` on [codeacademy](https://www.codecademy.com/article/numpy-matrix-multiplication-a-beginners-guide) or [digitalocean](https://www.digitalocean.com/community/tutorials/numpy-matrix-multiplication)
+# - [Scipy Solver](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html) from the [Linear Algebra library](https://docs.scipy.org/doc/scipy/reference/linalg.html)
 #

@@ -119,13 +119,14 @@ for time in timesteps:
     # the line below is the same as for flow driven models
     cohort.loc[:, time] = survival_curve_matrix.loc[:, time] * inflows.iloc[time]
 
+cohort
+
+# %%
 # set index and columns to years instead of timesteps
 cohort.index = years
 cohort.columns = years
 
-cohort
-
-# %%
+# and visualize the cohort matrix with a heatmap
 sns.heatmap(cohort, annot=False)
 
 # %%
