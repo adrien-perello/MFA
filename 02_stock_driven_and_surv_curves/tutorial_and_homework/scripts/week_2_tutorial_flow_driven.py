@@ -99,6 +99,10 @@ survival_curve_matrix
 inflows = data["inflow"]
 inflows
 
+# %% [markdown]
+# ![flow_driven_equations](../img/flow_driven_equations.png)
+#
+
 # %%
 # create survival matrix with placeholder zeros
 cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
@@ -275,5 +279,6 @@ sns.heatmap(cohort2, annot=False)
 # - [Statistical functions in scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html)
 # - the `enumerate()` function on [W3school](https://www.w3schools.com/python/ref_func_enumerate.asp) or [Programiz](https://www.programiz.com/python-programming/methods/built-in/enumerate)
 # - [Pandas excel writer](https://pandas.pydata.org/docs/reference/api/pandas.ExcelWriter.html)
-# - [Element wise multiplication](https://www.sharpsightlabs.com/blog/numpy-multiply/) (also known as [Hadamard product](<https://en.wikipedia.org/wiki/Hadamard_product_(matrices)>))
+# - [Element wise multiplication](https://www.sharpsightlabs.com/blog/numpy-multiply/)
+# - Difference between `np.dot()`, `np.multiply()` and `np.matmul()` on [codeacademy](https://www.codecademy.com/article/numpy-matrix-multiplication-a-beginners-guide) or [digitalocean](https://www.digitalocean.com/community/tutorials/numpy-matrix-multiplication)
 #
