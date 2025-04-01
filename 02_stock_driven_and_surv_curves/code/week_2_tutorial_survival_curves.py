@@ -27,7 +27,7 @@ print(BASE_DIR)
 # Load input data, inflow-driven model:
 # and check your data
 
-file_path = BASE_DIR / "data" / "raw" / "MFA_II_tutorial_II.xlsx"
+file_path = BASE_DIR / "data_input" / "MFA_II_tutorial_II.xlsx"
 data = pd.read_excel(file_path, sheet_name="inflow_driven")
 data.info()
 
@@ -58,7 +58,6 @@ timesteps
 fixed_lifetime = 40
 survival_curve = np.ones_like(timesteps)
 survival_curve[fixed_lifetime:] = 0
-
 plt.plot(survival_curve)
 plt.show()
 
@@ -108,7 +107,6 @@ weibull_dist = weibull_min(
     scale=30,  # Stretches or compresses the curve along the x-axis (spread)
 )
 survival_curve = weibull_dist.sf(timesteps)  # sf = survival function
-
 plt.plot(survival_curve)
 plt.show()
 
@@ -121,26 +119,9 @@ lognorm_dist = lognorm(
     loc=0,  # shifts the curve along the x-axis (starting point)
     scale=10,  # controls the stretch of the distribution
 )
-
 survival_curve = lognorm_dist.sf(timesteps)  # sf = survival function
-
 plt.plot(survival_curve)
 plt.show()
-
-# %% [markdown]
-# # Reproduce a survival curve
-#
-
-# %%
-# Choose 3 different observed survival curves from the
-# 'sf' sheet in the 'MFA_II_tutorial_II.xlsx' file,
-# and try to match them using one of the distributions above.
-file_path = BASE_DIR / "data" / "raw" / "MFA_II_tutorial_II.xlsx"
-observed_sf = pd.read_excel(file_path, sheet_name="sf")
-observed_sf.plot()
-
-# %%
-# ANSWER
 
 # %% [markdown]
 # # Create a survival curve matrix
@@ -151,7 +132,7 @@ observed_sf.plot()
 survival_curve_matrix = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
 # %% [markdown]
-# ![filling_survival_curve_matrix](../img/filling_survival_curve_matrix.png)
+# ![filling_survival_curve_matrix](../../img/filling_survival_curve_matrix.png)
 #
 
 # %%

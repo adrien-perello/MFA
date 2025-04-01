@@ -2,6 +2,7 @@
 #
 # Use the **Pandas cheatsheet** [here](https://github.com/adrien-perello/Computer-Science-Crash-Course/blob/main/02_scientific-computing-libraries/03_pandas_cheatsheet.ipynb) to complete the tasks below
 #
+#
 
 # %% [markdown]
 # # Load libraries
@@ -306,52 +307,10 @@ commodities
 # ! ANSWER
 
 # %% [markdown]
-# # Structure your project
-#
-
-# %% [markdown]
-# We recommend following this folder structure, especially for larger projects like your thesis.
-#
-# For the final assignment, you only need a **single Python script** that implements all three steps: data cleaning, analysis, and visualization.
-#
-# ```bash
-# project_name/
-# │── data/
-# │   ├── raw/          # Original data as downloaded (never modified)
-# │   ├── interim/      # Data after initial cleaning/preprocessing
-# │   ├── processed/    # Final, analysis-ready datasets
-# │
-# │── docs/
-# │   ├── assignment.pdf  # Assignment details
-# │   ├── references/     # Supporting materials (papers, articles, etc.)
-# │
-# │── img/               # Any images used (logos, schematics, etc.)
-# │
-# │── notebooks/
-# │   ├── 00_exploratory.ipynb    # Initial exploration
-# │   ├── 01_cleaning.ipynb       # Data cleaning & transformation
-# │   ├── 02_analysis.ipynb       # Core computations & analysis
-# │   ├── 03_visualization.ipynb  # Final graphs & insights
-# │
-# │── scripts/
-# │   ├── 01_cleaning.py        # code for data cleaning & transformation
-# │   ├── 02_analysis.py        # Core computations & analysis
-# │   ├── 03_visualization.py   # Final plotting & insights
-# │
-# │── reports/
-# │   ├── figures/       # Saved plots and figures
-# │   ├── final_report_or_poster.pdf  # Final report or presentation
-# │
-# │── environment.yml    # Python dependencies (for Anaconda / Mamba)
-# │── requirements.txt   # Python dependencies (for Pip / Virtualenv)
-# ```
-#
-
-# %% [markdown]
 # **Note**: to export a jupyter notebook file as a python script, click on `Save and Export Notebook As` > `Executable Script`.
 # Don't forget to test the script to make sure everything works as intented.
 #
-# !["export as .py"](../img/export_as_python_script.png)
+# !["export as .py"](../../img/export_as_python_script.png)
 #
 
 # %% [markdown]
