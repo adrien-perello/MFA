@@ -128,6 +128,21 @@ plt.plot(survival_curve)
 plt.show()
 
 # %% [markdown]
+# # Reproduce a survival curve
+#
+
+# %%
+# Choose 3 different observed survival curves from the
+# 'sf' sheet in the 'MFA_II_tutorial_II.xlsx' file,
+# and try to match them using one of the distributions above.
+file_path = BASE_DIR / "data" / "raw" / "MFA_II_tutorial_II.xlsx"
+observed_sf = pd.read_excel(file_path, sheet_name="sf")
+observed_sf.plot()
+
+# %%
+# ANSWER
+
+# %% [markdown]
 # # Create a survival curve matrix
 #
 
