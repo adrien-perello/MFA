@@ -2,7 +2,6 @@
 #
 # Use the **Pandas cheatsheet** [here](https://github.com/adrien-perello/Computer-Science-Crash-Course/blob/main/02_scientific-computing-libraries/03_pandas_cheatsheet.ipynb) to complete the tasks below
 #
-#
 
 # %% [markdown]
 # # Load libraries
@@ -313,7 +312,7 @@ commodities
 # %% [markdown]
 # We recommend following this folder structure, especially for larger projects like your thesis.
 #
-# For the final assignment, you only need a single Python script that implement all three steps: data cleaning, analysis, and visualization.
+# For the final assignment, you only need a **single Python script** that implements all three steps: data cleaning, analysis, and visualization.
 #
 # ```bash
 # project_name/
