@@ -77,6 +77,11 @@ plt.show()
 # create survival curve matrix with placeholder zeros
 survival_curve_matrix = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
+# %% [markdown]
+# ![filling_survival_curve_matrix](../img/filling_survival_curve_matrix.png)
+#
+
+# %%
 # populate the survival curve matrix with shifted curves, column by column using slices
 for step in timesteps:
     # at each iteration, we take 1 year less of the survival curve
@@ -107,13 +112,16 @@ cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 # %% [markdown]
 # ![stock_driven_equations](../img/stock_driven_equations.png)
 #
+# ![filling_stock_driven_cohort](../img/filling_stock_driven_cohort.png)
+#
 
 # %%
 # iteratively calculate the inflows, and
 # multiply the inflow with the shifted curves to get the cohorts' behavior over time
 for time in timesteps:
-    # calculate the difference between current stock and the sum of all prev inflows
-    # but we don't forget to divide by survival_curve[0] (not always = 1)
+    # calculate the difference between current stock and the sum of all
+    # what remains from previous inflows
+    # Also, don't forget to divide by survival_curve[0] (not always = 1)
     difference = stock.iloc[time] - cohort.loc[time, :].sum()
     inflows.iloc[time] = difference / survival_curve_matrix.loc[time, time]
     # the line below is the same as for flow driven models

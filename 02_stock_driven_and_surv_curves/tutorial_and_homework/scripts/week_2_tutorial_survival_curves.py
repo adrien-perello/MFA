@@ -135,6 +135,11 @@ plt.show()
 # create survival curve matrix with placeholder zeros
 survival_curve_matrix = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
+# %% [markdown]
+# ![filling_survival_curve_matrix](../img/filling_survival_curve_matrix.png)
+#
+
+# %%
 # populate the survival curve matrix with shifted curves, column by column using slices
 for step in timesteps:
     # at each iteration, we take 1 year less of the survival curve
