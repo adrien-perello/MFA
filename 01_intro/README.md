@@ -10,8 +10,8 @@ project_name/
 │── data_output/    # Final data, analysis-ready
 │
 │── docs/
-│   ├── lectures/    # Teaching materials
-│   ├── assignment/  # Assignment details
+    ├── lectures/    # Teaching materials
+    ├── assignment/  # Assignment details
 ```
 
 

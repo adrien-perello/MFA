@@ -11,8 +11,8 @@ project_name/
 │── data_output/    # Final data, analysis-ready
 │
 │── docs/
-│   ├── lectures/    # Teaching materials
-│   ├── assignment/  # Assignment details
+    ├── lectures/    # Teaching materials
+    ├── assignment/  # Assignment details
 ```
 
 
@@ -20,7 +20,7 @@ project_name/
 
 Instructions:
 - Go to `code/`
-- Open the `week_2_tutorial_survival_curves.ipynb` notebook and try to understand the code
+- Open the `week_2_tutorial_survival_curves.ipynb` notebook and answer the questions
 - Do the same with the `week_2_tutorial_flow_driven.ipynb` notebook
 - Do the same with the `week_2_tutorial_stock_driven.ipynb` notebook
 
