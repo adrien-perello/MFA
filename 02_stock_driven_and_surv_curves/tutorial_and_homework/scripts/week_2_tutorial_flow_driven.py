@@ -99,14 +99,15 @@ survival_curve_matrix
 inflows = data["inflow"]
 inflows
 
+# %%
+# create survival matrix with placeholder zeros that we will populate
+cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
+
 # %% [markdown]
 # ![flow_driven_equations](../img/flow_driven_equations.png)
 #
 
 # %%
-# create survival matrix with placeholder zeros
-cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
-
 # multiply the inflow with the shifted curves to get the cohorts' behavior over time
 for time in timesteps:
     # the line below is the same as for stock driven models

@@ -99,18 +99,16 @@ stock = data["stock"]
 stock
 
 # %%
-# create an empty inflow series that we will populate
+# create inflow series and survival matrix with
+# placeholder zeros, that we will populate
 inflows = pd.Series(0, index=stock.index, dtype=float)
-inflows
+cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
 
 # %% [markdown]
 # ![stock_driven_equations](../img/stock_driven_equations.png)
 #
 
 # %%
-# create survival matrix with placeholder zeros
-cohort = pd.DataFrame(0, index=timesteps, columns=timesteps, dtype=float)
-
 # iteratively calculate the inflows, and
 # multiply the inflow with the shifted curves to get the cohorts' behavior over time
 for time in timesteps:
@@ -120,7 +118,6 @@ for time in timesteps:
     inflows.iloc[time] = difference / survival_curve_matrix.loc[time, time]
     # the line below is the same as for flow driven models
     cohort.loc[:, time] = survival_curve_matrix.loc[:, time] * inflows.iloc[time]
-
 
 # set index and columns to years instead of timesteps
 cohort.index = years
