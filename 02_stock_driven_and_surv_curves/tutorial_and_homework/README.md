@@ -2,7 +2,8 @@
 
 **Instructions:**
 - Go to **02_stock_driven_and_surv_curves** > **tutorial_and_homework** > **notebooks**
-- Open the `week_2_tutorial_flow_driven.ipynb` notebook and try to understand the code
+- Open the `week_2_tutorial_survival_curves.ipynb` notebook and try to understand the code
+- Do the same with the `week_2_tutorial_flow_driven.ipynb` notebook
 - Do the same with the `week_2_tutorial_stock_driven.ipynb` notebook
 
 
