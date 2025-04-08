@@ -63,7 +63,7 @@
     - The environment has successfully activated when the name appears in green with a green arrow
   - **Click Launch** on Jupyter Notebook or JupyterLab (in the Home tab).
 
-> **Notes:**
+> **Note:**
 > - You can also launch Jupyter by clicking on the green arrow button and selecting **Open with Jupyter Notebook** in the dropdown menu
 
 ![Anaconda GUI - activate venv](./img/anaconda_activate_env.png)
@@ -115,9 +115,9 @@ If you don’t want to install anything, you can run the notebooks using a web-b
   - e.g. `01_intro/code/week_1_assignment.ipynb` or `01_intro/code`
 - Click on "Launch"
 
-> **Note**: 
-> Notice that all the information you need to fill is contained in the original URL you copied
-> The more specific you are about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
+> **Notes**: 
+> - Notice that all the information you need to fill is contained in the original URL you copied
+> - The more specific you are about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
 
 ![mybinder](./img/mybinder.png)
 
