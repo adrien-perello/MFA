@@ -91,7 +91,7 @@
     - Install **[VS Code](https://code.visualstudio.com/download)**
     - **Open VS Code** and go to **File > Open Folder**
     - **Open a Jupyter Notebook** (`.ipynb` file)
-    - **Select [the virtual environment (i.e. Kernel)](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)** where the Jupyter package is installed
+    - **Select [the virtual environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)** (i.e. Kernel) where the Jupyter package is installed
 
 ![vscode](./img/vscode.png)
 
@@ -116,7 +116,7 @@ If you don’t want to install anything, you can run the notebooks using a web-b
 - Click on "Launch"
 
 > **Note**: 
-> - Notice that the original URL is composed of the <span style="color: #1f77b4;">URL to the repository</span> + the <span style="color: #ff7f0e;">branch</span> + the <span style="color: #2ca02c;">path to the jupyter file</span>: "<span style="color: #1f77b4;">https://github.com/adrien-perello/MFA/</span> blob/ <span style="color: #ff7f0e;"></span><span style="color: #ff7f0e;">main/</span> <span style="color: #2ca02c;">01_intro/code/week_1_assignment.ipynb</span>"
+> - Notice that the original URL is composed of the <font color= #1f77b4;">URL to the repository</font> + the <font color=#ff7f0e;">branch</font> + the <font color=#2ca02c;">path to the jupyter file</font>: "<font color= #1f77b4;">github.com/adrien-perello/MFA/</font> blob/ <font color= #ff7f0e;"></font><font color=#ff7f0e;">main/</font> <font color= #2ca02c;">01_intro/code/week_1_assignment.ipynb</font>"
 > The more you are specific about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
 
 ![mybinder](./img/mybinder.png)
