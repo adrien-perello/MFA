@@ -27,6 +27,9 @@
   - **Select** the `environment.yml` file
   - **Enter a name** for the new environment, or use the existing name (default is `dmfa`)
 
+
+![Anaconda GUI - set up venv](./img/anaconda_setup_env.png)
+
 - **Option 2:** Using the Command Line
   - **Navigate to the cloned/downloaded folder** (where the `environment.yml` is located)
   - **Open a Terminal** (MacOS, Linux) or **Command Prompt** (Windows) from inside that specific directory
