@@ -116,7 +116,8 @@ If you don’t want to install anything, you can run the notebooks using a web-b
 - Click on "Launch"
 
 > **Note**: 
-> The more you are specific about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
+> Notice that all the information you need to fill is contained in the original URL you copied
+> The more specific you are about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
 
 ![mybinder](./img/mybinder.png)
 
