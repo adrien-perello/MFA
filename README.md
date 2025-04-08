@@ -107,6 +107,7 @@ If you don’t want to install anything, you can run the notebooks using a web-b
 
 - Copy the **URL of the jupyter notebebook** you want to launch
   - e.g. `https://github.com/adrien-perello/MFA/blob/main/01_intro/code/week_1_assignment.ipynb`
+  - <font color= #1f77b4;">URL to the repository</font> + the <font color=#ff7f0e;">branch</font> + the <font color=#2ca02c;">path to the jupyter file</font>
 - Go to **[Binder](https://mybinder.org/)**.
 - Enter the **GitHub repository URL** in the "GitHub repository name or URL" field
   - e.g. `https://github.com/adrien-perello/MFA/`
