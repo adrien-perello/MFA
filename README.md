@@ -74,7 +74,11 @@
       ```bash
       conda activate dmfa
       ```
-    - Run the following command to launch jupyter:
+      or
+      ```bash
+      conda activate MY-ENV-NAME
+      ```
+    - **Run the following command** to launch jupyter:
       ```bash
       jupyter lab
       ``` 
@@ -84,10 +88,10 @@
       ```
   
 - **Option 3:** Using VS Code
-    - Install [VS Code](https://code.visualstudio.com/download)
-    - Open VS Code and go to File > Open Folder
-    - Open a Jupyter Notebook (`.ipynb` file)
-    - Make sure to select [the virtual environment (i.e. Kernel)](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) where the Jupyter package is installed
+    - Install **[VS Code](https://code.visualstudio.com/download)**
+    - **Open VS Code** and go to **File > Open Folder**
+    - **Open a Jupyter Notebook** (`.ipynb` file)
+    - **Select [the virtual environment (i.e. Kernel)](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)** where the Jupyter package is installed
 
 ![vscode](./img/vscode.png)
 
