@@ -40,14 +40,13 @@
     ```bash
     conda env create --file environment.yml
     ```
-    or
+    or specify your own name (the default name of the environment is `dmfa`)
     ```bash
     conda env create --name MY-ENV-NAME --file environment.yml
     ```  
   
   
-> **Notes:**
-> - The default name of the environment is `dmfa`
+> **Note:**
 > - If you’re not inside the correct directory, you can specify the full path: `--file /path/to/environment.yml`
 
 
