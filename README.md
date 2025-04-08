@@ -57,7 +57,7 @@
 
 - **Option 1:** Using the Graphical User Interface
   - Open **Anaconda Navigator** 
-  - Click on the **Environments tab** in the left panel
+  - Click on the **Environments tab** in the left panel (see screenshot below)
   - **[Select your virtual environment](https://www.anaconda.com/docs/tools/anaconda-navigator/tutorials/manage-environments)** to activate it (e.g., `dmfa` or your custom name).
     - Please note that it might take a few minutes to load.
     - The environment has successfully activated when the name appears in green with a green arrow
@@ -105,20 +105,29 @@ If you don’t want to install anything, you can run the notebooks using a web-b
 
 #### via Binder
 
-- Go to [Binder](https://mybinder.org/).
-- Enter the GitHub repository URL in the "GitHub repository name or URL" field.
-- Specify the branch and the file to open (optional)
+- Copy the **URL of the jupyter notebebook** you want to launch
+  - e.g. `https://github.com/adrien-perello/MFA/blob/main/01_intro/code/week_1_assignment.ipynb`
+- Go to **[Binder](https://mybinder.org/)**.
+- Enter the **GitHub repository URL** in the "GitHub repository name or URL" field
+  - e.g. `https://github.com/adrien-perello/MFA/`
+- Specify **the branch** (usually `main`)
+- Specify the **path** to the **folder** or the **jupyter file**
+  - e.g. `01_intro/code/week_1_assignment.ipynb` or `01_intro/code`
 - Click on "Launch"
 
-![mybinder](./img/mybinder.png)
+> **Note**: 
+> - Notice that the original URL is composed of the <span style="color: #1f77b4;">URL to the repository</span> + the <span style="color: #ff7f0e;">branch</span> + the <span style="color: #2ca02c;">path to the jupyter file</span>: "<span style="color: #1f77b4;">https://github.com/adrien-perello/MFA/</span> blob/ <span style="color: #ff7f0e;"></span><span style="color: #ff7f0e;">main/</span> <span style="color: #2ca02c;">01_intro/code/week_1_assignment.ipynb</span>"
+> The more you are specific about the folder/file you want to load, the faster it will be to launch Binder (building a Docker image can be slow)
 
-> **Note**: It is recommended that you only open the desired notebook, as building a Docker image can be slow (see screenshot above)
+![mybinder](./img/mybinder.png)
 
 
 #### via Google Colab (requires a Google account)
 
-- Go to [Colab](https://colab.research.google.com/)
-- Click on File > Upload notebook
-- Select Github and specify the URL
+- Go to **[Colab](https://colab.research.google.com/)**
+- Click on **File > Upload notebook**
+- Select Github and specify the URL (**Code > HTTPS >** `https://github.com/adrien-perello/MFA.git`)
+- Select the **repository** (`MFA` in the dropdown menu)
+- Select the **jupyter file** (`.ipynb`) to open
 
 ![colab](./img/colab.png)
