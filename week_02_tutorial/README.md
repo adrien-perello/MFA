@@ -25,9 +25,9 @@ Instructions:
 
 Instructions:
 - Go to `code/`
-- Open the `week_2_assignment.ipynb` notebook
+- Open the `week_2_homework.ipynb` notebook
 - Try to answer all questions – grading will reflect this.
-- Save your answer as a **jupyter notebook** (`week_2_assignment_familyName_firstName.ipynb`) or **python script** (`week_2_assignment_familyName_firstName.py`)
+- Save your answer as a **jupyter notebook** (`week_2_homework_familyName_firstName.ipynb`) or **python script** (`week_2_homework_familyName_firstName.py`)
 - Submit your answers **individually** by the following **Thursday 12:00** on Brightspace.
 
 **Additional notes:**
