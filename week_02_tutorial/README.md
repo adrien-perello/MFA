@@ -9,10 +9,6 @@ week_02_tutorial/
 │── data_input/     # Original data as downloaded (never modified)
 │
 │── data_output/    # Final data, analysis-ready
-│
-│── docs/
-    ├── lectures/    # Teaching materials
-    ├── assignment/  # Assignment details
 ```
 
 
