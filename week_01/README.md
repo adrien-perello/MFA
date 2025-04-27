@@ -2,7 +2,7 @@
 
 
 ```bash
-week_01_tutorial/
+week_01/
 │── code/     # code (.ipynb notebooks + .py scripts)
 │
 │── data_input/     # Original data as downloaded (never modified)
