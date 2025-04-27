@@ -3,7 +3,7 @@
 
 
 ```bash
-week_02_tutorial/
+week_02/
 │── code/     # code (.ipynb notebooks + .py scripts)
 │
 │── data_input/     # Original data as downloaded (never modified)
@@ -18,9 +18,9 @@ week_02_tutorial/
 
 Instructions:
 - Go to `code/`
-- Open the `week_2_tutorial_survival_curves.ipynb` notebook and answer the questions
-- Do the same with the `week_2_tutorial_flow_driven.ipynb` notebook
-- Do the same with the `week_2_tutorial_stock_driven.ipynb` notebook
+- Open the `week_2_flow_driven.ipynb` notebook and answer the questions
+- Open the `week_2_stock_driven.ipynb` notebook and follow the code along
+- Open the `week_2_curves.ipynb` and answer the questions
 
 
 ## Weekly assignment
