@@ -17,7 +17,7 @@ week_01_tutorial/
 
 Instructions:
 - Go to `code/`
-- Open the `week_1_tutorial.ipynb` jupyter notebook
+- Open the `week_1_pandas_refresher.ipynb` jupyter notebook
 - Try to answer all questions
 
 
