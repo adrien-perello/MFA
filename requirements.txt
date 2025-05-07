@@ -6,4 +6,6 @@ seaborn
 jupyter
 jupyterlab
 ipykernel
+ipympl
+ipywidgets
 openpyxl
